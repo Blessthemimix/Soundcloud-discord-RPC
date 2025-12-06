@@ -48,9 +48,9 @@ def get_media_info(bus):
                 title = metadata.get('xesam:title', 'Unknown')
                 length_micro = metadata.get('mpris:length', 0) # Длина в микросекундах
                 
-                # Проверка: действительно ли это SoundCloud?
+                # Проверка: действительно ли это SoundCloud
                 # Обычно браузеры не пишут "SoundCloud" в поле source явно,
-                # но мы можем отфильтровать по заголовку или логике.
+                # поэтому нужно отфильтровать по заголовку или логике.
                 
                 return {
                     "artist": artist,
@@ -107,7 +107,7 @@ def main():
                     large_text="SoundCloud (Arch Linux)",
                     small_image="logo",
                     start=start_time # Показывает "прошло 00:00"
-                    # Если хочешь, чтобы показывало "осталось 03:20", используй 'end=end_time' вместо 'start'
+                    # Если захотите, чтобы показывало "осталось 03:20", используйте 'end=end_time' вместо 'start'
                 )
             except Exception as e:
                 logging.error(f"RPC Update Error: {e}")
